@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Bytes Converter</title>
+</head>
+<body>
+    <h1>Text to Bytes Converter</h1>
+
+    <div id="input">
+        <textarea id="inputText" placeholder="Enter text" rows="4" cols="50"></textarea>
+    </div>
+
+    <button onclick="convertToBytes()">Convert</button>
+    <p>Bytes & Characters Length: <span id="byteLength">0</span></p>
+
+    <script>
+        function convertToBytes() {
+            const inputText = document.getElementById('inputText').value;
+            const byteLength = new TextEncoder().encode(inputText).length;
+
+            document.getElementById('byteLength').textContent = byteLength;
+        }
+    </script>
+</body>
+
+<style>
+
+    #input {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+        max-height: 20rem;
+    }
+
+    #inputText {
+        width: 55%;
+        height: 20rem;
+        max-width: 55%;
+        max-height: 20rem;
+    }
+
+</style>
+
+</html>
